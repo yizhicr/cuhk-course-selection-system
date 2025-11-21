@@ -20,33 +20,27 @@ python app.py
 cd client && python -m http.server 8000
 ```
 Visit http://localhost:8000 and use demo accounts::
-· Admin: admin / admin123
-· Student: student1 / student123
+- Admin: admin / admin123
+- Student: student1 / student123
 
 # Features
 ## For Students
 Course browsing and enrollment
 
-· Time conflict detection
-
-· Enrollment status tracking
-
-· Profile management
+- Time conflict detection
+- Enrollment status tracking
+- Profile management
 
 ## For Administrators
-· Course management (CRUD)
-
-· Enrollment approval system
-
-· Real-time statistics
+- Course management (CRUD)
+- Enrollment approval system
+- Real-time statistics
 
 # Tech Stack
 
-· Backend: Python, Flask, SQLite
-
-· Frontend: HTML, CSS, JavaScript
-
-· Architecture: Client-Server with REST API
+- Backend: Python, Flask, SQLite
+- Frontend: HTML, CSS, JavaScript
+- Architecture: Client-Server with REST API
 
 # Project Structure
 ```markdown
