@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Test</title>
+</head>
+<body>
+    <h1>API 测试页面</h1>
+    
+    <div>
+        <h2>测试登录</h2>
+        <button onclick="testLogin()">测试学生登录</button>
+        <button onclick="testAdminLogin()">测试管理员登录</button>
+        <button onclick="testSession()">测试Session</button>
+        <button onclick="testCourses()">测试获取课程</button>
+    </div>
+    
+    <div id="result" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc;"></div>
+
+    <script>
+        function logResult(data) {
+            document.getElementById('result').innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+        }
+
+        function testLogin() {
+            fetch('http://localhost:5000/api/login', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                credentials: 'include',
+                body: JSON.stringify({username: 'student1', password: 'student123'})
+            })
+            .then(r => r.json())
+            .then(logResult)
+            .catch(console.error);
+        }
+
+        function testAdminLogin() {
+            fetch('http://localhost:5000/api/login', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                credentials: 'include',
+                body: JSON.stringify({username: 'admin', password: 'admin123'})
+            })
+            .then(r => r.json())
+            .then(logResult)
+            .catch(console.error);
+        }
+
+        function testSession() {
+            fetch('http://localhost:5000/api/courses', {
+                credentials: 'include'
+            })
+            .then(r => r.json())
+            .then(logResult)
+            .catch(console.error);
+        }
+
+        function testCourses() {
+            fetch('http://localhost:5000/api/courses')
+            .then(r => r.json())
+            .then(logResult)
+            .catch(console.error);
+        }
+    </script>
+</body>
+</html>
